@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Tutor-student personal chat</title>
+    <link th:href="@{/css/testing_style.css}" rel="stylesheet"/>
+</head>
+
+<body>
+<div class="header">
+    <div class="container flex">
+        <div class="left_logo_group ">
+
+
+            <a href="#" class="head_link1">
+                <img src="/images/left_logo2.svg" alt="left logo2" class="left_logo2">
+            </a>
+        </div>
+        <div class="right_logo_group">
+            <a href="#" class="head_link2">
+                <img src="/images/right_logos.png" alt="right logos" class="right_logo1">
+            </a>
+        </div>
+    </div>
+</div>
+
+    <div class="basic_main">
+        <div class="main1">
+            <div class="container"></div>
+            <h1 class="header_h1">It is tutor's chat with the certain student</h1>
+
+            <div class="student_info">
+                <h1 class="header_h3" th:text="${getStudentFromList.getFirstName}">value</h1>
+                <h1 class="header_h3" th:text="${getStudentFromList.getSecondName()}">value</h1>
+            </div>
+        </div>
+
+        <div class="main2">
+            <div class="container flex1">
+                <div class="chat_window">
+                    <h1 class="header_h1">Primary chat window</h1>
+                    <div class="chat_table">
+                        <table type="text" name="body" rows="20" cols="45" readonly="true">
+
+                            <tr th:each="message : ${messageList}">
+                                <td><span th:text="${message.getTimestamp().getHours()}"> time </span></td>
+                                <td><span >:</span></td>
+                                <td><span th:text="${message.getTimestamp().getMinutes()}"> time </span></td>
+                                <td><span >   </span></td>
+                                <td><span th:text="${message.getMessage()}"> message </span></td>
+                            </tr>
+
+                        </table>
+                    </div>
+                    <div class="enter_msg_area">
+
+                        <form action="#" th:action="@{'../student/' + ${id}}" th:object="${msgRequest}" method="post">
+                            <p> <input type="text" th:field="*{studentId}" hidden=true /></p>
+
+                            <label class="placeholder-box">
+                                <input required type="text" th:field="*{message}">
+                                <div class="placeholder-text">Enter message </div>
+                            </label>
+
+                            <div class="button_place">
+
+                                <div class="button_1">
+                                    <input class="submit_btn" type="submit" value="Submit" />
+                                </div>
+
+                                <div class="button_2">
+                                    <input class="submit_btn" type="reset" value="Reset" />
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="container">
+                <div class="logout">
+
+                    <a  class="header_h3" th:href="@{/api/v1/tutor_scope/tutor_chat}">Go to tutor's chat page</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<section class="cellar_footer">
+    <div class="container">
+        <div class="cell_of_footer">
+            <div class="right_footer_side">
+                <div class="footer_text">
+                    © 2024 Java Sber School.
+                </div>
+            </div>
+            <div class="left_footer_side">
+                <div class="cellar_footer_logos">
+                    <div class="logoONE">
+                        <img src="/images/footlogoWhite.svg" alt="logo1" class="footer_logo footlogo1">
+                        <a href="#" class="footer_cellar_link">
+                            <img src="/images/f.svg" alt="symbol1" class="footer_logo_symbol">
+                        </a>
+                    </div>
+                    <div class="logoONE">
+                        <img src="/images/footlogoPink.svg" alt="logo1" class="footer_logo footlogo1">
+                        <a href="#" class="footer_cellar_link">
+                            <img src="/images/insta 2.svg" alt="symbol1" class="footer_logo_symbol">
+                        </a>
+                    </div>
+                    <div class="logoONE">
+                        <img src="/images/footlogoWhite.svg" alt="logo1" class="footer_logo footlogo1">
+                        <a href="#" class="footer_cellar_link">
+                            <img src="/images/pinterest3.svg" alt="symbol1" class="footer_logo_symbol">
+                        </a>
+                    </div>
+                    <div class="logoONE">
+                        <img src="/images/footlogoWhite.svg" alt="logo1" class="footer_logo footlogo1">
+                        <a href="#" class="footer_cellar_link">
+                            <img src="/images/twitter4.svg" alt="symbol1" class="footer_logo_symbol">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+</body>
+
+</html>

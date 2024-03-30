@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Result page</title>
+    <link th:href="@{/css/testing_style.css}" rel="stylesheet"/>
+</head>
+
+<body>
+<div class="header">
+    <div class="container flex">
+        <div class="left_logo_group ">
+
+
+            <a href="#" class="head_link1">
+                <img src="/images/left_logo2.svg" alt="left logo2" class="left_logo2">
+            </a>
+        </div>
+        <div class="right_logo_group">
+            <a href="#" class="head_link2">
+                <img src="/images/right_logos.png" alt="right logos" class="right_logo1">
+            </a>
+        </div>
+    </div>
+</div>
+<div class="basic_main">
+    <div class="main1">
+        <div class="container"></div>
+        <h1 class="header_h1">Result page</h1>
+    </div>
+    <div class="main2">
+        <div class="container">
+            <div class="results">
+                <h1 class="header_h3">Correct answers quantity</h1>
+                <h3 class="header_h1" th:text="${correctResult}">value</h3>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="logout">
+                <a th:href="@{/api/v1/student_scope/menu}">Go to menu</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<section class="cellar_footer">
+    <div class="container">
+        <div class="cell_of_footer">
+            <div class="right_footer_side">
+                <div class="footer_text">
+                    © 2024 Java Sber School.
+                </div>
+            </div>
+            <div class="left_footer_side">
+                <div class="cellar_footer_logos">
+                    <div class="logoONE">
+                        <img src="/images/footlogoWhite.svg" alt="logo1" class="footer_logo footlogo1">
+                        <a href="#" class="footer_cellar_link">
+                            <img src="/images/f.svg" alt="symbol1" class="footer_logo_symbol">
+                        </a>
+                    </div>
+                    <div class="logoONE">
+                        <img src="/images/footlogoPink.svg" alt="logo1" class="footer_logo footlogo1">
+                        <a href="#" class="footer_cellar_link">
+                            <img src="/images/insta 2.svg" alt="symbol1" class="footer_logo_symbol">
+                        </a>
+                    </div>
+                    <div class="logoONE">
+                        <img src="/images/footlogoWhite.svg" alt="logo1" class="footer_logo footlogo1">
+                        <a href="#" class="footer_cellar_link">
+                            <img src="/images/pinterest3.svg" alt="symbol1" class="footer_logo_symbol">
+                        </a>
+                    </div>
+                    <div class="logoONE">
+                        <img src="/images/footlogoWhite.svg" alt="logo1" class="footer_logo footlogo1">
+                        <a href="#" class="footer_cellar_link">
+                            <img src="/images/twitter4.svg" alt="symbol1" class="footer_logo_symbol">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</body>
+
+</html>
+
+
+
+

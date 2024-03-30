@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Register page</title>
+    <link th:href="@{/css/login_style.css}" rel="stylesheet"/>
+</head>
+
+<body>
+<div class="main1">
+    <div class="container ">
+        <div class="login_header flex1">
+            <h1 class="login_h1_header">Register</h1>
+        </div>
+
+        <div class="main2 flex1">
+            <div class="login">
+                <form th:method="POST" th:action="@{/register}" th:object="${registerRequestStudent}">
+
+                    <div class="text_field">
+                        <label class="text_field_label" for="firstName">Enter first name:</label>
+                        <input class="text_field_input" type="text" th:field="*{firstName}" id="firstName"/>
+                    </div>
+
+                    <div class="text_field">
+                        <label class="text_field_label" for="secondName">Enter second name:</label>
+                        <input class="text_field_input" type="text" th:field="*{secondName}" id="secondName"/>
+                    </div>
+
+                    <div class="text_field">
+                        <label class="text_field_label" for="login">Enter login:</label>
+                        <input class="text_field_input" type="text" th:field="*{username}" id="login"/>
+                    </div>
+
+                    <div class="text_field">
+                        <label class="text_field_label" for="password">Enter password:</label>
+                        <input class="text_field_input" type="password" th:field="*{password}" id="password"/>
+                    </div>
+
+
+                    <input class="submit_btn" type="submit" value="register"/>
+                </form>
+            </div>
+        </div>
+        <div class="link_cellar flex1">
+            <h4 class="navigate_h4_header"><a class="header_h3" th:href="@{login}">navigate to login page</a></h4>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+

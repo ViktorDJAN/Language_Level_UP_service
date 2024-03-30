@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Tutor-student personal chat</title>
+    <link th:href="@{/css/testing_style.css}" rel="stylesheet"/>
+</head>
+
+<body>
+<div class="header">
+    <div class="container flex">
+        <div class="left_logo_group ">
+            <a href="#" class="head_link1">
+                <img src="/images/left_logo2.svg" alt="left logo2" class="left_logo2">
+            </a>
+        </div>
+        <div class="right_logo_group">
+            <a href="#" class="head_link2">
+                <img src="/images/right_logos.png" alt="right logos" class="right_logo1">
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="basic_main">
+    <div class="main1">
+        <div class="container "></div>
+        <h1 class="header_h1">Main menu</h1>
+        <div class="complex_header flex1">
+            <h1 class="header_h1">Hello</h1>
+            <h1 class="header_h1" th:text="${authenticatedStudent.getFirstName()}">value</h1>
+        </div>
+        <div class="offers_headers">
+            <h2 class="header_h1">If you want to improve your English we follow these offers below</h2>
+            <h2 class="header_h1">Take courses which are more suitable for you! </h2>
+        </div>
+    </div>
+
+    <div class="main2">
+        <div class="container flex2">
+
+            <div class="main2_left">
+                <div class="self_study_btn ">
+                    <a class="submit_btn" th:href="@{/api/v1/student_scope/courses/no_tutor}">Self-study
+                        materials</a>
+                </div>
+            </div>
+
+            <div class="main2_right">
+                <div class="with_tutor_study_btn ">
+                    <a class="submit_btn" th:href="@{/api/v1/student_scope/student_chat}">Studies with tutor</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main3">
+        <div class="container ">
+            <div class="test_area">
+                <div class="despensible1">
+                    <h2 class="header_h1">Or you wish take the test</h2>
+                </div>
+
+                <div class="test_btn flex1 ">
+                    <a class="submit_btn" th:href="@{/api/v1/qaList}">Take the test</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div class="logout">
+                <a class="header_h3" th:href="@{/logout}">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="cellar_footer">
+    <div class="container">
+        <div class="cell_of_footer">
+            <div class="right_footer_side">
+                <div class="footer_text">
+                    © 2024 Java Sber School.
+                </div>
+            </div>
+            <div class="left_footer_side">
+                <div class="cellar_footer_logos">
+                    <div class="logoONE">
+                        <img src="/images/footlogoWhite.svg" alt="logo1" class="footer_logo footlogo1">
+                        <a href="#" class="footer_cellar_link">
+                            <img src="/images/f.svg" alt="symbol1" class="footer_logo_symbol">
+                        </a>
+                    </div>
+                    <div class="logoONE">
+                        <img src="/images/footlogoPink.svg" alt="logo1" class="footer_logo footlogo1">
+                        <a href="#" class="footer_cellar_link">
+                            <img src="/images/insta 2.svg" alt="symbol1" class="footer_logo_symbol">
+                        </a>
+                    </div>
+                    <div class="logoONE">
+                        <img src="/images/footlogoWhite.svg" alt="logo1" class="footer_logo footlogo1">
+                        <a href="#" class="footer_cellar_link">
+                            <img src="/images/pinterest3.svg" alt="symbol1" class="footer_logo_symbol">
+                        </a>
+                    </div>
+                    <div class="logoONE">
+                        <img src="/images/footlogoWhite.svg" alt="logo1" class="footer_logo footlogo1">
+                        <a href="#" class="footer_cellar_link">
+                            <img src="/images/twitter4.svg" alt="symbol1" class="footer_logo_symbol">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</body>
+
+</html>

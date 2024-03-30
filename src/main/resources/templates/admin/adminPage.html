@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Admin page</title>
+    <link th:href="@{/css/admin_style.css}" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="container flex">
+            <div class="left_logo_group ">
+                <a href="#" class="head_link1">
+                    <img src="/images/left_logo2.svg" alt="left logo2" class="left_logo2">
+                </a>
+            </div>
+            <div class="right_logo_group">
+                <a href="#" class="head_link2">
+                    <img src="/images/right_logos.png" alt="right logos" class="right_logo1">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="basic_main">
+        <div class="main1">
+            <div class="container"></div>
+            <h1 class="header_h1">Admin menu</h1>
+        </div>
+
+        <div class="main2">
+            <div class="container flex">
+                <div class="main2_left">
+                    <h1 class="header_h1">Tutors</h1>
+                    <a class="header_h3" th:href="@{/api/v1/admin_scope/tutors}">Go to tutors' list</a>
+
+                    <div class="tutor_students">
+                        </br>
+                        <div th:each="tutor : ${tutorsBunch}">
+                            <h4 class="header_h1">Tutor</h4>
+                            <span class="header_h2" th:text="${tutor.getFirstName()}"> first name </span>
+                            <span class="header_h2" th:text="${tutor.getSecondName()}"> second name </span>
+                           <div><br></div>
+                            <h5 class="header_h1">Students group</h5>
+
+                            <div th:each="student : ${tutor.getStudentList()}">
+                                <span  class="header_h2" th:text="${student.getFirstName()}"> first name </span>
+                                <span class="header_h2" th:text="${student.getSecondName()}"> second name </span>
+                            </div>
+                            <div><br></div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="main2_right">
+                    <h1 class="header_h1"> Students without tutor</h1>
+                    </br>
+                    <div class="no_tutor_students">
+                        <table>
+                            <tbody>
+                                <tr th:each="student : ${withoutTutorStudents}">
+                                    <td><span class="header_h2" th:text="${student.getFirstName()}"> firstname </span></td>
+                                    <td><span class="header_h2" th:text="${student.getSecondName()}"> second name </span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main3_other">
+            <div class="container">
+                <h2 class="header_h3">Assign tutor for student</h2>
+                <div class="assign_form">
+                    <form th:method="POST" th:action="@{assign}" th:object="${tutorStudent}">
+
+                        <div class="text_field">
+                            <label class="text_field_label" for="tutorName">Enter tutor's name:</label>
+                            <input class="text_field_input" type="text" th:field="*{tutorName}" id="tutorName" />
+                        </div>
+
+                        <div class="text_field">
+                            <label class="text_field_label" for="studentName">Enter student's name:</label>
+                            <input class="text_field_input" type="text" th:field="*{studentName}" id="studentName" />
+                        </div>
+
+                        <div class="button_place">
+                            <button class="submit_btn" type="submit" th:disabled="${tutorStudent==null}"> Assign
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer">
+            <div class="container">
+                <div class="logout">
+                    <a class="header_h3" th:href="@{/logout}">Logout</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <section class="cellar_footer">
+        <div class="container">
+            <div class="cell_of_footer">
+                <div class="right_footer_side">
+                    <div class="footer_text">
+                        © 2024 Java Sber School.
+                    </div>
+                </div>
+                <div class="left_footer_side">
+                    <div class="cellar_footer_logos">
+                        <div class="logoONE">
+                            <img src="/images/footlogoWhite.svg" alt="logo1" class="footer_logo footlogo1">
+                            <a href="#" class="footer_cellar_link">
+                                <img src="/images/f.svg" alt="symbol1" class="footer_logo_symbol">
+                            </a>
+                        </div>
+                        <div class="logoONE">
+                            <img src="/images/footlogoPink.svg" alt="logo1" class="footer_logo footlogo1">
+                            <a href="#" class="footer_cellar_link">
+                                <img src="/images/insta 2.svg" alt="symbol1" class="footer_logo_symbol">
+                            </a>
+                        </div>
+                        <div class="logoONE">
+                            <img src="/images/footlogoWhite.svg" alt="logo1" class="footer_logo footlogo1">
+                            <a href="#" class="footer_cellar_link">
+                                <img src="/images/pinterest3.svg" alt="symbol1" class="footer_logo_symbol">
+                            </a>
+                        </div>
+                        <div class="logoONE">
+                            <img src="/images/footlogoWhite.svg" alt="logo1" class="footer_logo footlogo1">
+                            <a href="#" class="footer_cellar_link">
+                                <img src="/images/twitter4.svg" alt="symbol1" class="footer_logo_symbol">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
