@@ -1,4 +1,3 @@
-
 CREATE TABLE public.administrators (
     phone character varying(255),
     user_id SERIAL PRIMARY KEY
@@ -13,16 +12,6 @@ CREATE TABLE public.answer (
 );
 
 
-CREATE SEQUENCE public.answer_sequence
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-
-
 CREATE SEQUENCE public.hibernate_sequence
     START WITH 1
     INCREMENT BY 1
@@ -33,69 +22,44 @@ CREATE SEQUENCE public.hibernate_sequence
 
 
 CREATE TABLE public.messages (
-    message_id bigint PRIMARY KEY,
+    message_id bigserial PRIMARY KEY,
     message character varying(255),
     "timestamp" timestamp without time zone
 );
 
 
-CREATE SEQUENCE public.messages_message_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
 
 
 CREATE TABLE public.messages_sender_receiver (
-    id bigint PRIMARY KEY,
+    id bigserial PRIMARY KEY,
     receiver_id integer,
     sender_id integer,
     message_message_id bigint
 );
 
 
-CREATE SEQUENCE public.messages_sender_receiver_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
 
 
 CREATE TABLE public.question (
-    q_id bigint PRIMARY KEY,
+    q_id bigserial PRIMARY KEY,
     question_name character varying(255) NOT NULL
 );
 
 
 CREATE TABLE public.question_answer (
-    id bigint PRIMARY KEY,
+    id bigserial PRIMARY KEY,
     answer_id bigint,
     is_correct_answer boolean NOT NULL,
     question_id bigint
 );
 
 
-CREATE SEQUENCE public.question_answer_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
 
 
-CREATE SEQUENCE public.question_sequence
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
 
 
 CREATE TABLE public.result (
-    result_id bigint PRIMARY KEY,
+    result_id bigserial PRIMARY KEY,
     result_name character varying(255),
     score integer,
     "timestamp" timestamp without time zone,
@@ -104,17 +68,11 @@ CREATE TABLE public.result (
 
 
 
-CREATE SEQUENCE public.result_result_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
 
 
 
 CREATE TABLE public.roles (
-    role_id  PRIMARY KEY,
+    role_id  integer PRIMARY KEY,
     role_name character varying(255)
 );
 
@@ -147,14 +105,6 @@ CREATE TABLE public.users (
 );
 
 
-
-CREATE SEQUENCE public.users_user_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
 
 
 
@@ -332,6 +282,8 @@ SELECT setval('public.users_user_id_seq', (SELECT MAX(user_id) FROM public.users
 
 
 SELECT setval('public.messages_sender_receiver_id_seq', (SELECT MAX(id) FROM public.messages_sender_receiver));
+
+
 
 
 
