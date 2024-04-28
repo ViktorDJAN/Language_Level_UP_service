@@ -11,10 +11,7 @@ HTML, CSS , JUnit, Maven.
 6. To test integration with Telegram, you need to register in the application, then log in and take the test.
 7. Find the bot https://t.me/engilshLevelUpBot in Telegram.
 8. Press start, then send your name and it will show the result.
-![photo_2024-03-21_00-27-18](https://github.com/ViktorDJAN/graduation_work/assets/118601850/4079bf88-2f62-4ea4-aaae-b3a09881b57b)
 
-The table with useres' names and passwords is attached here.
-![image](https://github.com/ViktorDJAN/graduation_work/assets/118601850/ea98b7e9-d8f0-4ea6-b14b-4500e9c51e22)
 
 
 
